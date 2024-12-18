@@ -1,0 +1,75 @@
+.logo-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 229, 188, 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  opacity: 0;
+}
+
+.i-dot {
+  position: absolute;
+  top: -2px; /* Adjusted for better vertical alignment */
+  right: 4px; /* Adjusted to center above the 'i' */
+  width: 3px; /* Slightly reduced size for better proportion */
+  height: 3px;
+  background: radial-gradient(
+    circle at center,
+    #FFE5BC 0%,
+    #D4AF37 100%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  box-shadow: 0 0 4px rgba(255, 229, 188, 0.6); /* Added subtle glow */
+}
+
+.animate-shine .shine-effect {
+  animation: shine 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-shine .i-dot {
+  animation: dot-appear 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.9s;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+@keyframes dot-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(2px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
